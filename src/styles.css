@@ -1,4 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
 
+::-ms-reveal { display: none; }
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.sn-center { margin: 0 auto; }
+
+.sn-text-center { text-align: center; }
+.sn-text-right { text-align: right; }
+
+.sn-ptop-1 { padding-top: 1rem; }
+.sn-ptop-2 { padding-top: 2rem; }
+.sn-ptop-3 { padding-top: 3rem; }
+.sn-ptop-4 { padding-top: 4rem; }
+.sn-ptop-5 { padding-top: 5rem; }
+
+.sn-w-5 { width: 5%; }
+.sn-w-10 { width: 10%; }
+.sn-w-15 { width: 15%; }
+.sn-w-20 { width: 20%; }
+.sn-w-25 { width: 25%; }
+.sn-w-30 { width: 30%; }
+.sn-w-35 { width: 35%; }
+.sn-w-40 { width: 40%; }
+.sn-w-45 { width: 45%; }
+.sn-w-50 { width: 50%; }
+.sn-w-55 { width: 55%; }
+.sn-w-60 { width: 60%; }
+.sn-w-65 { width: 65%; }
+.sn-w-70 { width: 70%; }
+.sn-w-75 { width: 75%; }
+.sn-w-80 { width: 80%; }
+.sn-w-85 { width: 85%; }
+.sn-w-90 { width: 90%; }
+.sn-w-95 { width: 95%; }
+.sn-w-100 { width: 100%; }
