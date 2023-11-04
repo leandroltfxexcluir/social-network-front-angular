@@ -1,1 +1,28 @@
-<p>login works!</p>
+<div class="sn-w-30 sn-center sn-ptop-5">
+    <mat-card>
+        <div class="sn-text-center">
+            <h1>Social Network</h1>
+        </div>
+        <form (ngSubmit)="login()" [formGroup]="loginForm">
+            <mat-form-field class="sn-w-100" appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" formControlName="email">
+                <mat-error *ngIf="loginForm.controls['email'].invalid">{{ getErrorMessage(loginForm.controls['email'], 'Informe seu email') }}</mat-error>
+            </mat-form-field>
+            <mat-form-field class="sn-w-100" appearance="fill">
+                <mat-label>Senha</mat-label>
+                <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password">
+                <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" type="button">
+                    <mat-icon>{{ hidePassword ? 'visibility' : 'visibility_off' }}</mat-icon>
+                </button>
+                <mat-error *ngIf="loginForm.controls['password'].invalid">{{ getErrorMessage(loginForm.controls['password'], 'Informe sua senha') }}</mat-error>
+            </mat-form-field>
+            <div class="sn-text-right">
+                <button mat-raised-button color="primary" type="submit">Login</button>
+            </div>
+            <div class="sn-text-center">
+                <a mat-button>Cadastre-se</a>
+            </div>
+        </form>
+    </mat-card>
+</div>
