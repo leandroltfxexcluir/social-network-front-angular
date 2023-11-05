@@ -1,1 +1,41 @@
-<p>user-registration works!</p>
+<div class="sn-w-30 sn-center sn-ptop-5">
+    <mat-card>
+        <div class="sn-text-center">
+            <h1>Cadastrar usuário</h1>
+        </div>
+        <form (ngSubmit)="registerUser()" [formGroup]="userRegistrationForm">
+            <mat-form-field class="sn-w-100" appearance="fill">
+                <mat-label>Nome</mat-label>
+                <input matInput type="text" formControlName="name">
+                <mat-error *ngIf="userRegistrationForm.controls['name'].invalid">{{ getErrorMessage(userRegistrationForm.controls['name'], 'Informe seu nome', 'name') }}</mat-error>
+            </mat-form-field>
+            <mat-form-field class="sn-w-100" appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" formControlName="email">
+                <mat-error *ngIf="userRegistrationForm.controls['email'].invalid">{{ getErrorMessage(userRegistrationForm.controls['email'], 'Informe seu email', 'email') }}</mat-error>
+            </mat-form-field>
+            <mat-form-field class="sn-w-100" appearance="fill">
+                <mat-label>Senha</mat-label>
+                <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" (ngModelChange)="updateConfirmValidator()">
+                <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" type="button">
+                    <mat-icon>{{ hidePassword ? 'visibility' : 'visibility_off' }}</mat-icon>
+                </button>
+                <mat-error *ngIf="userRegistrationForm.controls['password'].invalid">{{ getErrorMessage(userRegistrationForm.controls['password'], 'Informe sua senha', 'password') }}</mat-error>
+            </mat-form-field>
+            <mat-form-field class="sn-w-100" appearance="fill">
+                <mat-label>Confirme a senha</mat-label>
+                <input matInput [type]="hideConfirmPassword ? 'password' : 'text'" formControlName="confirmPassword">
+                <button mat-icon-button matSuffix (click)="hideConfirmPassword = !hideConfirmPassword" type="button">
+                    <mat-icon>{{ hideConfirmPassword ? 'visibility' : 'visibility_off' }}</mat-icon>
+                </button>
+                <mat-error *ngIf="userRegistrationForm.controls['confirmPassword'].invalid">{{ getErrorMessage(userRegistrationForm.controls['confirmPassword'], 'Confirme sua senha') }}</mat-error>
+            </mat-form-field>
+            <div class="sn-text-right">
+                <button mat-raised-button color="primary" type="submit">Cadastrar</button>
+            </div>
+            <div class="sn-text-center">
+                <a mat-button [routerLink]="['/login']">Cancelar</a>
+            </div>
+        </form>
+    </mat-card>
+</div>
