@@ -39,6 +39,15 @@ describe('LoginComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it('buildLoginForm', () => {
+
+    component.loginForm = component.buildLoginForm();
+
+    expect(component.loginForm.controls['email']).toBeTruthy();
+    expect(component.loginForm.controls['password']).toBeTruthy();
+    expect(Object.keys(component.loginForm.controls).length).toBe(2);
+  });
+
   it('login - form valid', () => {
 
     component.loginForm = component.buildLoginForm();
