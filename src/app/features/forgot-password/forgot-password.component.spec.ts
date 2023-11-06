@@ -26,9 +26,9 @@ describe('ForgotPasswordComponent', () => {
         MatInputModule,
         MatButtonModule,
       ],
-      declarations: [ ForgotPasswordComponent ]
+      declarations: [ForgotPasswordComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(ForgotPasswordComponent);
     component = fixture.componentInstance;
@@ -37,5 +37,39 @@ describe('ForgotPasswordComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('buildUserRegistrationForm', () => {
+
+    component.forgotPasswordForm = component.buildUserRegistrationForm();
+
+    expect(component.forgotPasswordForm.controls['email']).toBeTruthy();
+    expect(Object.keys(component.forgotPasswordForm.controls).length).toBe(1);
+  });
+
+  it('receiveCode - valid form', () => {
+
+    component.forgotPasswordForm = component.buildUserRegistrationForm();
+
+    component.forgotPasswordForm.controls['email'].setValue('email@email.com');
+
+    component.receiveCode();
+
+    expect(component.forgotPasswordForm.controls['email'].errors).toBeFalsy();
+    expect(component.forgotPasswordForm.valid).toBeTrue();
+  });
+
+  it('receiveCode - invalid email', () => {
+
+    component.forgotPasswordForm = component.buildUserRegistrationForm();
+
+    component.forgotPasswordForm.controls['email'].setValue('');
+
+    component.getErrorMessage(component.forgotPasswordForm.controls['email'], 'erro');
+
+    component.receiveCode();
+
+    expect(component.forgotPasswordForm.controls['email'].errors).toBeTruthy();
+    expect(component.forgotPasswordForm.valid).toBeFalse();
   });
 });
