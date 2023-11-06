@@ -5,6 +5,9 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.sn-flex { display: flex; }
+.sn-flex-jc-sb { justify-content: space-between; }
+
 .sn-center { margin: 0 auto; }
 
 .sn-text-center { text-align: center; }

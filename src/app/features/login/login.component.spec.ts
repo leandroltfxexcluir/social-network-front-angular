@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -19,6 +20,7 @@ describe('LoginComponent', () => {
       imports: [
         BrowserAnimationsModule,
         ReactiveFormsModule,
+        RouterTestingModule,
     
         MatCardModule,
         MatFormFieldModule,
@@ -37,6 +39,15 @@ describe('LoginComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('buildLoginForm', () => {
+
+    component.loginForm = component.buildLoginForm();
+
+    expect(component.loginForm.controls['email']).toBeTruthy();
+    expect(component.loginForm.controls['password']).toBeTruthy();
+    expect(Object.keys(component.loginForm.controls).length).toBe(2);
   });
 
   it('login - form valid', () => {

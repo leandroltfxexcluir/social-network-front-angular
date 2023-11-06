@@ -17,11 +17,12 @@
                 </button>
                 <mat-error *ngIf="loginForm.controls['password'].invalid">{{ getErrorMessage(loginForm.controls['password'], 'Informe sua senha') }}</mat-error>
             </mat-form-field>
-            <div class="sn-text-right">
+            <div class="sn-flex sn-flex-jc-sb">
+                <a mat-button [routerLink]="['/esqueci-a-senha']">Esqueci a senha</a>
                 <button mat-raised-button color="primary" type="submit">Login</button>
             </div>
             <div class="sn-text-center">
-                <a mat-button>Cadastre-se</a>
+                <a mat-button [routerLink]="['/cadastro']">Cadastre-se</a>
             </div>
         </form>
     </mat-card>
